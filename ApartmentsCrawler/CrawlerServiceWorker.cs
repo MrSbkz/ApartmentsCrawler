@@ -43,6 +43,6 @@ public class CrawlerServiceWorker : IHostedService
 
     private void DoWork(object state)
     {
-        _crawlerService.Run();
+        _crawlerService.RunAsync();
     }
 }

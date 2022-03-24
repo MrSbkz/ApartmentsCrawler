@@ -18,9 +18,9 @@ public class Program
         Host.CreateDefaultBuilder(args)
             .ConfigureServices((hostContext, services) =>
             {
-                services.AddDbContext<ApartmentsCrawlerContext>(opt =>
-                    opt.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ApartmentsCrawlerDb;Integrated Security=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+                services.AddDbContext<ApartmentsCrawlerContext>();
                 services.AddHostedService<CrawlerServiceWorker>();
                 services.AddTransient<ICrawlerService, CrawlerService>();
+                services.AddScoped<INowodworskiService, NowodworskiService>();
             });
 }

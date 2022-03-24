@@ -2,7 +2,7 @@
 
 namespace ApartmentsCrawler.Services.Contracts;
 
-public interface ICrawlerService
+public interface IOfferService
 {
-    Task RunAsync();
+    Task<IList<Offer>> GetOffersAsync();
 }

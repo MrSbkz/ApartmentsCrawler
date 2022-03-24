@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApartmentsCrawler.Migrations
 {
     [DbContext(typeof(ApartmentsCrawlerContext))]
-    [Migration("20220317145328_InitMigration")]
+    [Migration("20220324112659_InitMigration")]
     partial class InitMigration
     {
         /// <inheritdoc />
@@ -25,44 +25,40 @@ namespace ApartmentsCrawler.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ApartmentsCrawler.Data.Entities.Page", b =>
+            modelBuilder.Entity("ApartmentsCrawler.Data.Entities.Offer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Area")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsReserved")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
-                    b.Property<float>("PropertySize")
-                        .HasColumnType("real");
-
-                    b.Property<int>("RoomsCount")
+                    b.Property<int>("RoomCount")
                         .HasColumnType("int");
 
                     b.Property<string>("Source")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Pages");
+                    b.ToTable("Offers");
                 });
 #pragma warning restore 612, 618
         }
