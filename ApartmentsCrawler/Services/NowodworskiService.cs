@@ -53,7 +53,8 @@ public class NowodworskiService : INowodworskiService
                 var apartmentElements = apartmentSection.Descendants().ToList();
 
                 var pathUrl = NowodworskiHelper.GetUrlPath(apartmentElements);
-                if (pathUrl != null && !NowodworskiHelper.IsUrlValid(pathUrl) || pathUrl == null) continue;
+                if (pathUrl != null && !NowodworskiHelper.IsUrlValid(pathUrl) || pathUrl == null)
+                    continue;
 
                 var location = NowodworskiHelper.GetLocation(apartmentElements);
                 var roomCount = NowodworskiHelper.GetRoomCount(apartmentElements);

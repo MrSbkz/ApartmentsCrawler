@@ -22,5 +22,6 @@ public class Program
                 services.AddHostedService<CrawlerServiceWorker>();
                 services.AddTransient<ICrawlerService, CrawlerService>();
                 services.AddScoped<INowodworskiService, NowodworskiService>();
+                services.AddScoped<IDbService, DbService>();
             });
 }
